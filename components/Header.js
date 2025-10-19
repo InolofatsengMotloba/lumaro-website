@@ -12,9 +12,12 @@ import {
 const navLinks = [
   { name: "ABOUT", href: "/about" },
   { name: "SERVICES", href: "/services" },
-  { name: "BLOG", href: "/blog" },
+  { name: "TEAM", href: "/team" },
   { name: "CONTACT", href: "/contact" },
-  { name: "FREE GUIDE", href: "/free-guide" },
+  {
+    name: "E-COMMERCE",
+    href: "https://mangemahle-ecommerce.vercel.app",
+  },
 ];
 
 export default function Header() {
@@ -91,16 +94,23 @@ export default function Header() {
       {/* Bottom Row: Main Navigation */}
       <nav className="mt-8">
         <ul className="flex justify-center space-x-8 text-sm font-sans tracking-widest text-gray-700">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <Link
-                href={link.href}
-                className="uppercase transition-colors duration-200 hover:text-black"
-              >
+          {navLinks.map((link) =>
+            link.name === "E-COMMERCE" ? (
+              <li key={link.name}>
+                <Link
+                  href={link.href}
+                  target="_blank"
+                  className="uppercase transition-colors duration-200 hover:text-black"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ) : (
+              <Link key={link.name} href={link.href} className="menu-link">
                 {link.name}
               </Link>
-            </li>
-          ))}
+            )
+          )}
         </ul>
       </nav>
     </header>
