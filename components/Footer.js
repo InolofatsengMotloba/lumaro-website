@@ -52,7 +52,7 @@ const FooterLinkGroup = ({ title, links }) => (
 );
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2025;
 
   return (
     <footer className="bg-[#f4eee5] border-t border-gray-200 mt-16 pt-16 pb-8 px-8">
