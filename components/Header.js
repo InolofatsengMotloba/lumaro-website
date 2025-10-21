@@ -79,6 +79,7 @@ export default function Header() {
             href="https://facebook.com"
             aria-label="Facebook"
             className="hover:text-blue-600 transition-colors duration-200"
+            target="_blank"
           >
             <FaFacebookF size={14} />
           </Link>
@@ -86,6 +87,7 @@ export default function Header() {
             href="https://twitter.com"
             aria-label="Twitter"
             className="hover:text-blue-400 transition-colors duration-200"
+            target="_blank"
           >
             <FaTwitter size={14} />
           </Link>
@@ -93,6 +95,7 @@ export default function Header() {
             href="https://instagram.com"
             aria-label="Instagram"
             className="hover:text-pink-600 transition-colors duration-200"
+            target="_blank"
           >
             <FaInstagram size={14} />
           </Link>
@@ -100,6 +103,7 @@ export default function Header() {
             href="https://pinterest.com"
             aria-label="Pinterest"
             className="hover:text-blue-700 transition-colors duration-200"
+            target="_blank"
           >
             <FaLinkedin size={14} />
           </Link>
