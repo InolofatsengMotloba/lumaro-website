@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import {
   FaWhatsapp,
   FaEnvelope,
@@ -10,11 +9,11 @@ import {
 
 // Company Details (Centralized Data)
 const companyContact = {
-  phone: "(555) 123-4567",
-  email: "hello@estrella.com",
-  address: "123 Digital Way, Suite 400, New York, NY 10001",
-  whatsappNumber: "+15551234567", // Use E.164 format for WhatsApp link
-  hours: "Mon - Fri: 9:00 AM - 5:00 PM EST",
+  phone: "(078) 724-4418",
+  email: "vuvuhesewu2@gmail.com",
+  address: "No 77 John Beer Street, Northcrest, Mthatha, Eastern Cape",
+  whatsappNumber: "+27787244418",
+  hours: "Mon - Fri: 9:00 AM - 5:00 PM SAST",
 };
 
 // WhatsApp link utility
@@ -22,37 +21,37 @@ const companyContact = {
 const whatsappLink = `https://wa.me/${
   companyContact.whatsappNumber
 }?text=${encodeURIComponent(
-  "Hello Estrella, I'd like to get a quote for digital solutions. Please tell me what information you need."
+  "Hello Vuyelwa, I'd like to get a quote for your services. Please tell me what information you need."
 )}`;
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen">
       <main className="max-w-7xl mx-auto py-16 px-8 lg:py-24">
         {/* Hero Section - Centered and High-Impact */}
         <div className="text-center mb-20">
           {/* Subtle Sans-Serif Pre-title */}
-          <p className="text-sm font-light uppercase tracking-widest text-gray-500 mb-2">
-            Let's Collaborate
+          <p className="text-sm font-light uppercase tracking-widest text-[#dca37c] mb-2">
+            Let&apos;s Collaborate
           </p>
 
           {/* Serif Title - Matching Header's Elegance */}
-          <h1 className="text-6xl md:text-8xl font-serif font-light text-black tracking-tighter">
+          <h1 className="heading-font text-6xl md:text-8xl font-serif font-light text-[#63564d] tracking-tighter">
             Get In Touch
           </h1>
 
           {/* Subtitle/Call-to-Action */}
-          <p className="mt-6 text-lg text-gray-700 max-w-2xl mx-auto">
-            Ready to elevate your brand? Connect with our team to discuss your
-            next digital project.
+          <p className="mt-6 text-lg text-[#63564d] max-w-2xl mx-auto">
+            Partner with Lumaro to bring your ideas to life through innovation
+            and purpose.
           </p>
         </div>
 
         {/* --- Main Content Grid: Form + Info/CTA --- */}
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left Column: Contact Form */}
-          <div className="bg-gray-50 p-8 border border-gray-200">
-            <h2 className="text-2xl font-serif font-medium text-black mb-6">
+          <div className="bg-[#f4eee5] p-8 border border-[#bcada3]">
+            <h2 className="text-2xl font-serif font-medium text-[#63564d] mb-6">
               Send Us a Message
             </h2>
 
@@ -61,7 +60,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-[#63564d]"
                 >
                   Name
                 </label>
@@ -69,14 +68,14 @@ export default function Contact() {
                   type="text"
                   id="name"
                   name="name"
-                  className="mt-1 block w-full border-b border-gray-300 bg-transparent focus:border-black focus:ring-0 transition duration-150 p-2"
+                  className="mt-1 block w-full border-b border-[#bcada3] bg-transparent focus:border-[#63564d] focus:ring-0 transition duration-150 p-2"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-[#63564d]"
                 >
                   Email
                 </label>
@@ -84,14 +83,14 @@ export default function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  className="mt-1 block w-full border-b border-gray-300 bg-transparent focus:border-black focus:ring-0 transition duration-150 p-2"
+                  className="mt-1 block w-full border-b border-[#bcada3] bg-transparent focus:border-[#63564d] focus:ring-0 transition duration-150 p-2"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="project"
-                  className="block text-sm font-medium text-gray-700"
+                  className="block text-sm font-medium text-[#63564d]"
                 >
                   Your Project / Needs
                 </label>
@@ -99,14 +98,14 @@ export default function Contact() {
                   id="project"
                   name="project"
                   rows="4"
-                  className="mt-1 block w-full border border-gray-300 bg-white focus:border-black focus:ring-0 transition duration-150 p-3"
+                  className="mt-1 block w-full border border-[#bcada3] bg-white focus:border-[#63564d] focus:ring-0 transition duration-150 p-3"
                   required
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-3 text-sm font-semibold uppercase tracking-widest text-white bg-black hover:bg-gray-800 transition duration-300 border border-black"
+                className="w-full py-3 text-sm font-semibold uppercase tracking-widest text-white bg-[#dca37c] hover:bg-[#d99a70] transition duration-300 border border-[#bcada3]"
               >
                 SUBMIT INQUIRY
               </button>
@@ -116,13 +115,13 @@ export default function Contact() {
           {/* Right Column: Key Details, Business Hours, and WhatsApp CTA */}
           <div className="space-y-12">
             {/* WhatsApp Quote Prompt Section */}
-            <div className="p-6 border border-gray-300 hover:border-black transition duration-300">
-              <h3 className="text-xl font-serif font-medium text-black mb-4">
+            <div className="p-6 border border-[#bcada3] hover:border-black transition duration-300">
+              <h3 className="text-xl font-serif font-bold text-[#63564d] mb-4">
                 Need a Quick Quote?
               </h3>
-              <p className="text-gray-700 mb-6">
-                Connect instantly with a solutions specialist via WhatsApp for a
-                fast, free consultation.
+              <p className="text-[#63564d] mb-6">
+                Connect instantly with us via WhatsApp for a fast, free
+                consultation.
               </p>
 
               {/* WhatsApp Button - Primary CTA */}
@@ -139,7 +138,7 @@ export default function Contact() {
 
             {/* General Contact Details */}
             <div className="space-y-6">
-              <h3 className="text-xl font-serif font-medium text-black">
+              <h3 className="text-xl font-serif font-medium text-[#63564d]">
                 Direct Contact
               </h3>
               <div className="space-y-3">
@@ -159,6 +158,8 @@ export default function Contact() {
                   Icon={FaMapMarkerAlt}
                   label="Location"
                   value={companyContact.address}
+                  target="_blank"
+                  link={`https://maps.app.goo.gl/6WEKLBpKbC6UK78c6`}
                 />
               </div>
             </div>
@@ -182,22 +183,24 @@ export default function Contact() {
 }
 
 // Reusable component for contact details
-const ContactDetail = ({ Icon, label, value, link }) => (
+const ContactDetail = ({ Icon, label, value, link, target = "_self" }) => (
   <div className="flex items-start space-x-4">
-    <Icon className="text-black mt-1" size={16} />
+    <Icon className="text-[#dca37c] hover:text-[#d99a70] mt-1" size={16} />
     <div className="flex-1">
-      <p className="text-sm font-semibold uppercase tracking-wider text-gray-700 mb-0.5">
+      <p className="text-sm font-semibold uppercase tracking-wider text-[#63564d] mb-0.5">
         {label}
       </p>
       {link ? (
         <a
           href={link}
-          className="text-gray-900 text-base hover:text-black transition-colors duration-200"
+          target={target} // This is what you're missing
+          rel={target === "_blank" ? "noopener noreferrer" : ""}
+          className="text-[#63564d] text-base hover:text-black transition-colors duration-200"
         >
           {value}
         </a>
       ) : (
-        <p className="text-gray-900 text-base">{value}</p>
+        <p className="text-[#63564d] text-base">{value}</p>
       )}
     </div>
   </div>
