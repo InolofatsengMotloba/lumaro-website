@@ -76,11 +76,11 @@ const ValueItem = ({ value }) => (
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#f6f3ec]">
       <main className="max-w-7xl mx-auto py-16 px-8 lg:py-24">
         {/* Hero Section: The Big Question */}
         <div className="text-center mb-20">
-          <p className="text-sm font-light uppercase tracking-widest text-gray-500 mb-2">
+          <p className="text-sm font-light uppercase tracking-widest text-[#dca37c] mb-2">
             The Lumaro Story
           </p>
           <h1 className="text-6xl md:text-8xl font-serif font-light text-black tracking-tighter">

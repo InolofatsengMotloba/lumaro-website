@@ -78,7 +78,7 @@ const FeatureItem = ({ feature }) => (
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#f6f3ec]">
       <main className="max-w-7xl mx-auto">
         {/* --- 1. HERO SECTION: GRABS ATTENTION --- */}
         <section className="py-20 md:py-36 px-8 text-center border-b border-gray-100">

@@ -40,7 +40,7 @@ export default function Header() {
 
   return (
     // Main container with padding and a bottom border
-    <header className="w-full bg-[#f4eee5] px-8 py-8 border-b border-gray-300">
+    <header className="w-full bg-[#f4eee5] px-8 py-8 border-b border-[#bcada3]">
       {/* Top Row: Search, Logo/Title, Social Icons */}
       <div className="flex items-center justify-between h-16">
         {/* Left Section: Search Link */}
