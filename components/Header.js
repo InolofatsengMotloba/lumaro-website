@@ -1,271 +1,164 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import {
-  FaSearch,
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedin,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
-
-// Array for navigation links to keep the component clean
-const navLinks = [
-  { name: "ABOUT", href: "/about" },
-  { name: "SERVICES", href: "/services" },
-  { name: "TEAM", href: "/team" },
-  { name: "CONTACT", href: "/contact" },
-  {
-    name: "E-COMMERCE",
-    href: "https://mangemahle-ecommerce.vercel.app",
-  },
-];
+import React, { useState, useEffect } from "react";
+import { Mail, Phone, MapPin, Menu, X, ChevronDown, Plane } from "lucide-react";
+import Image from "next/image";
 
 export default function Header() {
-  const pathname = usePathname();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activePage, setActivePage] = useState();
 
-  // Function to check if a link is active
-  const isActive = (href) => {
-    // For external links, never mark as active
-    if (href.startsWith("http")) return false;
+  // Handle scroll effect for header background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    // For root path
-    if (href === "/") return pathname === "/";
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    // For other paths, check if current path starts with the href
-    return pathname.startsWith(href);
-  };
+  const menuItems = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "services" },
+    { name: "Travel Tips", href: "#" },
+    { name: "Inspiration", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "About Us", href: "#" },
+  ];
 
-  // Toggle menu function
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // Close menu when a link is clicked
-  const closeMenu = () => {
-    setIsMenuOpen(false);
+  const handleMenuItemClick = (itemName) => {
+    setActivePage(itemName);
+    setIsMobileMenuOpen(false);
   };
 
   return (
-    // Main container with padding and a bottom border
-    <header className="w-full bg-[#f4eee5] px-4 md:px-8 py-4 md:py-8 border-b border-[#bcada3]">
-      {/* Top Row: Search, Logo/Title, Social Icons & Hamburger */}
-      <div className="flex items-center justify-between h-16">
-        {/* Left Section: Search Link */}
-        <div className="flex-1 flex items-center text-xs tracking-widest uppercase text-[#63564d]">
-          <Link
-            href="/search"
-            className={`group flex flex-col items-start transition-colors duration-200 hover:text-black ${
-              isActive("/search") ? "font-bold text-[#63564d]" : ""
-            }`}
-          >
-            SEARCH
-            {/* The small line underneath 'SEARCH' */}
-            <span
-              className={`block w-6 h-px mt-0.5 transition-colors duration-200 ${
-                isActive("/search")
-                  ? "bg-black"
-                  : "bg-[#63564d] group-hover:bg-black"
-              }`}
-            ></span>
-          </Link>
-        </div>
-
-        {/* Center Section: Main Logo/Title */}
-        <div className="flex-none text-center">
-          <Link
-            href="/"
-            className="heading-font text-4xl md:text-6xl font-normal tracking-wider text-[#63564d]"
-          >
-            LUMARO
-          </Link>
-        </div>
-
-        {/* Right Section: Social Icons & Hamburger Menu */}
-        <div className="flex-1 flex justify-end items-center">
-          {/* Social Icons - Hidden on mobile */}
-          <div className="hidden md:flex space-x-4 text-[#63564d]">
-            <Link
-              href="https://facebook.com"
-              aria-label="Facebook"
-              className="hover:text-blue-600 transition-colors duration-200"
-              target="_blank"
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+      }`}
+      style={{ fontFamily: "Inter, sans-serif" }}
+    >
+      {/* --- Top Bar (Narrow, Text-sm, Contact/Location) --- */}
+      <div className="text-gray-700 text-sm hidden sm:block">
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-2 px-6 border-b border-orange-200/50">
+          {/* Left: Contact and Email */}
+          <div className="flex space-x-6">
+            <a
+              href="mailto:info@globetrekker.com"
+              className="flex items-center hover:text-orange-600 transition"
             >
-              <FaFacebookF size={14} />
-            </Link>
-            <Link
-              href="https://twitter.com"
-              aria-label="Twitter"
-              className="hover:text-blue-400 transition-colors duration-200"
-              target="_blank"
+              <Mail size={14} className="mr-1" />
+              <span>info@globetrekker.com</span>
+            </a>
+            <a
+              href="tel:+1234567890"
+              className="flex items-center hover:text-orange-600 transition"
             >
-              <FaTwitter size={14} />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              aria-label="Instagram"
-              className="hover:text-pink-600 transition-colors duration-200"
-              target="_blank"
-            >
-              <FaInstagram size={14} />
-            </Link>
-            <Link
-              href="https://pinterest.com"
-              aria-label="Pinterest"
-              className="hover:text-blue-700 transition-colors duration-200"
-              target="_blank"
-            >
-              <FaLinkedin size={14} />
-            </Link>
+              <Phone size={14} className="mr-1" />
+              <span>+1 (234) 567-890</span>
+            </a>
           </div>
 
-          {/* Hamburger Menu Button - Visible on mobile */}
+          {/* Right: Location */}
+          <div className="flex items-center text-gray-500">
+            <MapPin size={14} className="mr-1" />
+            <span>New York, NY, USA</span>
+          </div>
+        </div>
+      </div>
+
+      {/* --- Main Header (Logo, Menu) --- */}
+      <div>
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          {/* Logo (Left) */}
+          <a
+            href="/"
+            className="flex items-center text-xl font-extrabold text-gray-800 tracking-wider z-60"
+          >
+            <Plane size={24} className="text-orange-600 mr-2 rotate-12" />
+            GLOBE TREKKER
+          </a>
+
+          {/* Desktop Menu (Right) */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            {menuItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={`group flex items-center font-medium transition duration-300 relative ${
+                  activePage === item.name
+                    ? "text-orange-600 font-bold"
+                    : "text-gray-600 hover:text-orange-600"
+                }`}
+                onClick={() => handleMenuItemClick(item.name)}
+              >
+                {item.name}
+                {/* Underline effect */}
+                <span
+                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-orange-500 transition-transform duration-300 origin-left ${
+                    activePage === item.name
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                ></span>
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button (Hamburger) */}
           <button
-            className="md:hidden text-[#63564d] p-2 ml-4 transition-colors duration-200 hover:text-black"
-            onClick={toggleMenu}
+            className="lg:hidden p-2 rounded-full text-gray-600 hover:bg-gray-100 transition z-60"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
-            {isMenuOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* Bottom Row: Main Navigation - Hidden on mobile */}
-      <nav className="hidden md:block mt-8">
-        <ul className="flex justify-center space-x-8 text-sm font-sans tracking-widest text-[#63564d]">
-          {navLinks.map((link) =>
-            link.name === "E-COMMERCE" ? (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  target="_blank"
-                  className="uppercase transition-colors duration-200 hover:text-black"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ) : (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className={`uppercase transition-colors duration-200 hover:text-black ${
-                    isActive(link.href) ? "font-bold text-[#63564d]" : ""
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              </li>
-            )
-          )}
-        </ul>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
+      {/* --- Mobile Menu Drawer --- */}
       <div
-        className={`fixed inset-0 bg-[#f4eee5] z-50 md:hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+        className={`lg:hidden fixed inset-0 bg-white transform transition-transform duration-300 ease-in-out z-50 ${
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Header with Logo and Close Button */}
-        <div className="flex items-center justify-between p-6 border-b border-[#bcada3]">
-          {/* Logo in Mobile Menu */}
-          <Link
+        {/* Keep logo and menu button visible in mobile menu */}
+        <div className="absolute top-4 left-6 right-6 flex justify-between items-center z-60">
+          <a
             href="/"
-            className="heading-font text-2xl font-normal tracking-wider text-[#63564d]"
-            onClick={closeMenu}
+            className="flex items-center text-xl font-extrabold text-gray-800 tracking-wider"
           >
-            LUMARO
-          </Link>
+            <Plane size={24} className="text-orange-600 mr-2 rotate-12" />
+            GLOBE TREKKER
+          </a>
 
-          {/* Close Button */}
           <button
-            className="text-[#63564d] transition-colors duration-200 hover:text-black"
-            onClick={closeMenu}
+            className="p-2 rounded-full text-gray-600 hover:bg-gray-100 transition"
+            onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Close menu"
           >
-            <FaTimes size={24} />
+            <X size={28} />
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <nav className="flex flex-col items-center justify-center h-[calc(100vh-80px)]">
-          <ul className="space-y-8 text-center">
-            {navLinks.map((link) =>
-              link.name === "E-COMMERCE" ? (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    target="_blank"
-                    className="text-2xl uppercase tracking-widest text-[#63564d] transition-colors duration-200 hover:text-black"
-                    onClick={closeMenu}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ) : (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className={`text-2xl uppercase tracking-widest transition-colors duration-200 hover:text-black ${
-                      isActive(link.href)
-                        ? "font-bold text-[#63564d]"
-                        : "text-[#63564d]"
-                    }`}
-                    onClick={closeMenu}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              )
-            )}
-          </ul>
-
-          {/* Social Icons in Mobile Menu */}
-          <div className="flex space-x-6 mt-12 text-[#63564d]">
-            <Link
-              href="https://facebook.com"
-              aria-label="Facebook"
-              className="hover:text-blue-600 transition-colors duration-200"
-              target="_blank"
-              onClick={closeMenu}
+        {/* Mobile Menu Items */}
+        <nav className="flex flex-col space-y-2 p-4 h-full justify-center items-center">
+          {menuItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              className={`block px-4 py-3 text-lg font-medium rounded-lg transition min-w-[200px] text-center ${
+                activePage === item.name
+                  ? "bg-orange-600 text-white font-bold"
+                  : "text-gray-700 hover:bg-orange-50"
+              }`}
+              onClick={() => handleMenuItemClick(item.name)}
             >
-              <FaFacebookF size={20} />
-            </Link>
-            <Link
-              href="https://twitter.com"
-              aria-label="Twitter"
-              className="hover:text-blue-400 transition-colors duration-200"
-              target="_blank"
-              onClick={closeMenu}
-            >
-              <FaTwitter size={20} />
-            </Link>
-            <Link
-              href="https://instagram.com"
-              aria-label="Instagram"
-              className="hover:text-pink-600 transition-colors duration-200"
-              target="_blank"
-              onClick={closeMenu}
-            >
-              <FaInstagram size={20} />
-            </Link>
-            <Link
-              href="https://pinterest.com"
-              aria-label="Pinterest"
-              className="hover:text-blue-700 transition-colors duration-200"
-              target="_blank"
-              onClick={closeMenu}
-            >
-              <FaLinkedin size={20} />
-            </Link>
-          </div>
+              {item.name}
+            </a>
+          ))}
         </nav>
       </div>
     </header>
