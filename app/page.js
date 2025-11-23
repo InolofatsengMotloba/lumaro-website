@@ -7,6 +7,11 @@ import {
   FaCheckCircle,
   FaRegFileAlt,
 } from "react-icons/fa";
+import Image from "next/image";
+import Hero from "@/components/Hero";
+import ServicesSection from "@/components/ServicesSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Reviews from "@/components/Reviews";
 
 // --- DATA ---
 
@@ -78,121 +83,24 @@ const FeatureItem = ({ feature }) => (
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f6f3ec]">
-      <main className="max-w-7xl mx-auto">
-        {/* --- 1. HERO SECTION: GRABS ATTENTION --- */}
-        <section className="py-20 md:py-36 px-8 text-center border-b border-[#bcada3]">
-          <h1 className="heading-font text-2xl md:text-9xl font-serif font-light text-[#63564d] tracking-tighter max-w-5xl mx-auto leading-none">
-            Strategy. Creativity. <br />
-            Technology <span className="text-[#dca37c]">Impact.</span>
-          </h1>
-          <p className="mt-8 text-xl text-[#63564d] max-w-3xl mx-auto">
-            Inspired by our name, Lumaro — meaning “array of lights” — we
-            illuminate opportunities for brands and communities through
-            marketing, IT communication, and technology solutions that spark
-            real change.
-          </p>
-
-          {/* Primary CTA (Bold and High-Contrast) */}
-          <div className="mt-10 space-x-4">
-            <Link
-              href="/contact"
-              className="inline-block py-3 px-8 text-sm font-semibold uppercase tracking-widest text-white bg-[#dca37c] hover:bg-[#d99a70] transition duration-300 border border-[#bcada3]"
-            >
-              START YOUR JOURNEY
-            </Link>
-            <Link
-              href="/about"
-              className="inline-block py-3 px-8 text-sm font-semibold uppercase tracking-widest text-[#dca37c] border border-[#dca37c] hover:bg-gray-50 transition duration-300"
-            >
-              LEARN OUR STORY
-            </Link>
-          </div>
-        </section>
+    <div className="min-h-screen bg-white text-[#63564d]">
+      <main>
+        <div>
+          <Hero />
+        </div>
 
         {/* --- 2. SERVICES SUMMARY --- */}
-        <section className="py-20 px-8">
-          <h2 className="text-4xl font-serif font-medium text-center text-[#63564d] mb-12">
-            Our Core Focus
-          </h2>
-          <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            {servicesSummary.map((service, index) => (
-              <div
-                key={index}
-                className="flex space-x-6 p-6 border-b border-[#bcada3]"
-              >
-                <service.icon
-                  size={30}
-                  className="text-[#63564d] flex-none mt-1"
-                />
-                <div>
-                  <h3 className="text-xl font-semibold text-[#63564d] mb-2">
-                    {service.title}
-                  </h3>
-                  <p className="text-[#63564d]">{service.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Link to full services page */}
-          <div className="text-center mt-12">
-            <Link
-              href="/services"
-              className="text-sm font-semibold uppercase tracking-widest text-[#dca37c] hover:text-[#d99a70] transition duration-200"
-            >
-              VIEW ALL SERVICES IN DETAIL &rarr;
-            </Link>
-          </div>
-        </section>
+        <ServicesSection />
 
         <hr className="max-w-3xl mx-auto border-[#bcada3]" />
 
         {/* --- 3. WHY CHOOSE US --- */}
-        <section className="py-20 px-8 bg-[#f4eee5]">
-          <h2 className="text-4xl font-serif font-medium text-center text-[#63564d] mb-4">
-            The Lumaro Advantage
-          </h2>
-          <p className="text-lg text-[#63564d] text-center max-w-2xl mx-auto mb-12">
-            We prioritize quality over quantity, building partnerships and
-            relationships designed for long-term strategic success.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {features.map((feature, index) => (
-              <FeatureItem key={index} feature={feature} />
-            ))}
-          </div>
-        </section>
+        <WhyChooseUs />
 
         <hr className="max-w-3xl mx-auto border-[#bcada3]" />
 
         {/* --- 4. REVIEWS/TESTIMONIALS --- */}
-        <section className="py-20 px-8">
-          <h2 className="text-4xl font-serif font-medium text-center text-[#63564d] mb-12">
-            Client Voices
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="space-y-4 p-8 bg-white border-l-4 border-[#bcada3] shadow-sm"
-              >
-                <FaRegStar size={20} className="text-[#dca37c]" />
-                <blockquote className="text-xl font-serif italic text-gray-500 leading-relaxed">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="pt-2">
-                  <p className="text-sm font-semibold uppercase tracking-widest text-[#63564d]">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-xs text-[#63564d]">{testimonial.title}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Reviews />
       </main>
     </div>
   );
