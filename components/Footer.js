@@ -56,7 +56,7 @@ export default function Footer() {
   const currentYear = 2025;
 
   return (
-    <footer className="bg-[#f4eee5] border-t border-gray-200 mt-16 pt-16 pb-8 px-8">
+    <footer className="bg-[#f4eee5] border-t border-gray-200 pt-16 pb-8 px-8">
       {/* Main Grid Section: Quick Links, Contact, Company Info */}
       <div className="max-w-7xl mx-auto grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-16">
         {/* Company Logo/Tagline (Matches Header's Serif Font) */}
