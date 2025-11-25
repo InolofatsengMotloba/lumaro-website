@@ -37,7 +37,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 w-full pt-28">
+      <div className="max-w-7xl mx-auto relative z-10 w-full px-6 sm:px-0 pt-28">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* --- Left Content: Headline, Description, Button --- */}
           <div className="lg:w-5/12 text-center lg:text-left order-1">
