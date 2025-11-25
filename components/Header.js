@@ -52,7 +52,7 @@ export default function Header() {
                 className="flex items-center gap-2 hover:text-[#dca37c] transition"
               >
                 <FaPhone size={14} className="text-[#dca37c]" />
-                <span>078 724 4418</span>
+                <span>069 203 3751</span>
               </a>
             </div>
             <div className="flex items-center gap-2">

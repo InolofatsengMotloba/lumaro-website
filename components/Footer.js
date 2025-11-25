@@ -142,10 +142,10 @@ export default function Footer() {
             <li className="flex flex-nowrap items-center gap-2">
               <FaPhone className="text-[#dca37c] flex-shrink-0" size={14} />
               <a
-                href="tel:+27787244418"
+                href="tel:+27692033751"
                 className="text-[#63564d] text-sm hover:text-black transition-colors duration-200 whitespace-nowrap"
               >
-                (078) 724-4418
+                (069) 203-3751
               </a>
             </li>
 
