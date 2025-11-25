@@ -83,7 +83,7 @@ const FeatureItem = ({ feature }) => (
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-[#63564d]">
+    <div className="min-h-screen bg-[#f4eee5] text-[#63564d]">
       <main>
         <div>
           <Hero />
