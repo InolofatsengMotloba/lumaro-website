@@ -30,3 +30,7 @@ body {
 .heading-font {
   font-family: var(--font-playfair), serif;
 }
+
+.text-font {
+  font-family: var(--font-lato), sans-serif;
+}
