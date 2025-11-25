@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Mail, Phone, MapPin, Menu, X, ChevronDown, Plane } from "lucide-react";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { Menu, X, Plane } from "lucide-react";
 import Image from "next/image";
 
 export default function Header() {
@@ -21,11 +22,11 @@ export default function Header() {
 
   const menuItems = [
     { name: "Home", href: "/" },
+    { name: "About", href: "about" },
     { name: "Services", href: "services" },
-    { name: "Travel Tips", href: "#" },
-    { name: "Inspiration", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "About Us", href: "#" },
+    { name: "Team", href: "team" },
+    { name: "Contact", href: "contact" },
+    { name: "E-Commerce", href: "#" },
   ];
 
   const handleMenuItemClick = (itemName) => {
@@ -36,36 +37,48 @@ export default function Header() {
   return (
     <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-[#f4eee5] shadow-lg" : "bg-transparent"
       }`}
       style={{ fontFamily: "Inter, sans-serif" }}
     >
       {/* --- Top Bar (Narrow, Text-sm, Contact/Location) --- */}
-      <div className="text-gray-700 text-sm hidden sm:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center py-2 px-6 border-b border-orange-200/50">
+      <div className="text-[#63564d] text-sm hidden sm:block">
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-2 px-6 border-b border-[#bcada3]">
           {/* Left: Contact and Email */}
           <div className="flex space-x-6">
-            <a
-              href="mailto:info@globetrekker.com"
-              className="flex items-center hover:text-orange-600 transition"
-            >
-              <Mail size={14} className="mr-1" />
-              <span>info@globetrekker.com</span>
-            </a>
-            <a
-              href="tel:+1234567890"
-              className="flex items-center hover:text-orange-600 transition"
-            >
-              <Phone size={14} className="mr-1" />
-              <span>+1 (234) 567-890</span>
-            </a>
+            <div className="flex items-center gap-2">
+              <a
+                href="tel:+27692033751"
+                className="flex items-center gap-2 hover:text-[#dca37c] transition"
+              >
+                <FaPhone size={14} className="text-[#dca37c]" />
+                <span>078 724 4418</span>
+              </a>
+            </div>
+            <div className="flex items-center gap-2">
+              <a
+                href="mailto:info@lumarogroup.co.za"
+                className="flex items-center gap-2 hover:text-[#dca37c] transition"
+              >
+                <FaEnvelope size={14} className="text-[#dca37c]" />
+                <span>info@lumarogroup.co.za</span>
+              </a>
+            </div>
           </div>
 
           {/* Right: Location */}
-          <div className="flex items-center text-gray-500">
-            <MapPin size={14} className="mr-1" />
-            <span>New York, NY, USA</span>
-          </div>
+
+          <a
+            href="https://maps.app.goo.gl/6WEKLBpKbC6UK78c6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start overflow-visible"
+          >
+            <div className="flex items-center gap-1 text-[#63564d] hover:text-[#dca37c]">
+              <FaMapMarkerAlt size={14} className="text-[#dca37c]" />
+              <span>Northcrest, Mthatha, Eastern Cape</span>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -75,10 +88,16 @@ export default function Header() {
           {/* Logo (Left) */}
           <a
             href="/"
-            className="flex items-center text-xl font-extrabold text-gray-800 tracking-wider z-60"
+            className="heading-font flex items-center text-xl font-extrabold text-[#63564d] tracking-wider z-60"
           >
-            <Plane size={24} className="text-orange-600 mr-2 rotate-12" />
-            GLOBE TREKKER
+            <Image
+              src="/LGCLogo.png"
+              alt="Lumaro Group Logo"
+              width={50}
+              height={50}
+              className="w-10 h-10 sm:w-10 sm:h-10 pr-1"
+            />
+            LUMARO GROUP
           </a>
 
           {/* Desktop Menu (Right) */}
@@ -89,15 +108,15 @@ export default function Header() {
                 href={item.href}
                 className={`group flex items-center font-medium transition duration-300 relative ${
                   activePage === item.name
-                    ? "text-orange-600 font-bold"
-                    : "text-gray-600 hover:text-orange-600"
+                    ? "text-[#dca37c] font-bold"
+                    : "text-[#63564d] hover:text-[#dca37c]"
                 }`}
                 onClick={() => handleMenuItemClick(item.name)}
               >
                 {item.name}
                 {/* Underline effect */}
                 <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-orange-500 transition-transform duration-300 origin-left ${
+                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-[#dca37c] transition-transform duration-300 origin-left ${
                     activePage === item.name
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
@@ -109,7 +128,7 @@ export default function Header() {
 
           {/* Mobile Menu Button (Hamburger) */}
           <button
-            className="lg:hidden p-2 rounded-full text-gray-600 hover:bg-gray-100 transition z-60"
+            className="lg:hidden p-2 rounded-full text-[#63564d] hover:bg-gray-100 transition z-60"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -120,28 +139,31 @@ export default function Header() {
 
       {/* --- Mobile Menu Drawer --- */}
       <div
-        className={`lg:hidden fixed inset-0 bg-white transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`lg:hidden fixed inset-0 bg-[#f4eee5] transform transition-transform duration-300 ease-in-out z-50 ${
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Keep logo and menu button visible in mobile menu */}
-        <div className="absolute top-4 left-6 right-6 flex justify-between items-center z-60">
-          <a
+        {/* <div className="absolute top-4 left-6 right-6 flex justify-between items-center z-60">
+          {/* <a
             href="/"
-            className="flex items-center text-xl font-extrabold text-gray-800 tracking-wider"
+            className="flex items-center text-xl font-extrabold heading-font text-[#63564d] tracking-wider"
           >
-            <Plane size={24} className="text-orange-600 mr-2 rotate-12" />
-            GLOBE TREKKER
-          </a>
+            <Plane
+              size={24}
+              className="heading-font text-[#63564d] mr-2 rotate-12"
+            />
+            LUMARO GROUP
+          </a> */}
 
-          <button
+        {/* <button
             className="p-2 rounded-full text-gray-600 hover:bg-gray-100 transition"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Close menu"
           >
             <X size={28} />
-          </button>
-        </div>
+          </button> */}
+        {/* </div> */}
 
         {/* Mobile Menu Items */}
         <nav className="flex flex-col space-y-2 p-4 h-full justify-center items-center">
@@ -151,8 +173,8 @@ export default function Header() {
               href={item.href}
               className={`block px-4 py-3 text-lg font-medium rounded-lg transition min-w-[200px] text-center ${
                 activePage === item.name
-                  ? "bg-orange-600 text-white font-bold"
-                  : "text-gray-700 hover:bg-orange-50"
+                  ? "bg-[#63564d] text-white font-bold"
+                  : "text-[#63564d] hover:bg-orange-50"
               }`}
               onClick={() => handleMenuItemClick(item.name)}
             >
