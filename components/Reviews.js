@@ -20,7 +20,7 @@ export default function Reviews() {
   ];
 
   return (
-    <section className="relative py-20 sm:py-24 px-4 sm:px-8 overflow-hidden">
+    <section className="relative py-14 sm:py-16 px-4 sm:px-8 overflow-hidden">
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -39,11 +39,11 @@ export default function Reviews() {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-serif font-medium text-center text-white mb-4">
+        <h2 className="text-font text-3xl sm:text-4xl font-serif font-bold text-center text-white mb-4">
           Client Voices
         </h2>
         <p className="text-base sm:text-lg text-white/90 text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-          Don't just take our word for it—hear what our clients have to say
+          Don't just take our word for it - hear what our clients have to say
           about their experience working with us.
         </p>
 

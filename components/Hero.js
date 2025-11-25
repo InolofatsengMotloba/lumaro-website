@@ -23,7 +23,7 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-screen mx-auto flex items-center justify-center relative "
+      className="min-h-screen mx-auto flex items-center justify-center relative"
       style={{ fontFamily: "Inter, sans-serif" }}
     >
       {/* Background elements (subtle map contour, similar to the image) */}
@@ -59,9 +59,9 @@ const Hero = () => {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-row gap-4">
-              <Link href="/services">
-                <button className="px-6 py-3 bg-[#e0a07a] text-white font-semibold text-base rounded-2xl hover:shadow-lg hover:scale-[1.02] transition-all duration-300 flex items-center gap-2 whitespace-nowrap">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Link href="/services" className="flex justify-center sm:block">
+                <button className="px-6 py-3 bg-[#e0a07a] text-white font-semibold text-base rounded-2xl hover:shadow-lg hover:scale-[1.02] transition-all duration-300 flex items-center gap-2 whitespace-nowrap w-full sm:w-auto justify-center">
                   <TbTelescope
                     className="group-hover:translate-x-1 transition-transform"
                     size={20}
@@ -69,8 +69,8 @@ const Hero = () => {
                   Explore Services
                 </button>
               </Link>
-              <Link href="/contact">
-                <button className="px-6 py-3 bg-transparent text-[#cc9778] font-semibold text-base rounded-2xl border-2 border-[#cc9778] hover:shadow-lg hover:scale-[1.02] transition-all duration-300 whitespace-nowrap">
+              <Link href="/contact" className="flex justify-center sm:block">
+                <button className="px-6 py-3 bg-transparent text-[#cc9778] font-semibold text-base rounded-2xl border-2 border-[#cc9778] hover:shadow-lg hover:scale-[1.02] transition-all duration-300 whitespace-nowrap w-full sm:w-auto justify-center">
                   Contact Us
                 </button>
               </Link>
