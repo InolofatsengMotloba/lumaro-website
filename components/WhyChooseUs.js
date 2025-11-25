@@ -42,12 +42,15 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-8 bg-gradient-to-b from-white to-[#f8f6f4]">
+    <section className="py-20 px-4 sm:px-8 ">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl font-serif font-medium text-center text-[#63564d] mb-4">
-          The Lumaro Advantage
+        <h2 className="text-font text-3xl sm:text-4xl md:text-6xl font-extrabold text-center text-[#63564d] mb-4">
+          The Lumaro{" "}
+          <span className="text-[#e0a07a] text-font bg-clip-text">
+            Advantage
+          </span>
         </h2>
-        <p className="text-base sm:text-lg text-[#63564d] text-center max-w-2xl mx-auto mb-16">
+        <p className="text-font text-lg sm:text-lg text-[#63564d] text-center max-w-2xl mx-auto mb-16">
           We prioritize quality over quantity, building partnerships and
           relationships designed for long-term strategic success.
         </p>
@@ -58,10 +61,10 @@ export default function WhyChooseUs() {
             return (
               <div
                 key={index}
-                className="group p-6 sm:p-8 bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#63564d]/10"
+                className="group p-6 sm:p-8 bg-[#e9a46a]/10 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-transparent hover:border-[#63564d]/10"
               >
                 <div className="w-14 h-14 rounded-xl bg-[#63564d]/10 flex items-center justify-center mb-5 group-hover:bg-[#63564d] transition-colors duration-300">
-                  <IconComponent className="w-7 h-7 text-[#63564d] group-hover:text-white transition-colors duration-300" />
+                  <IconComponent className="w-7 h-7 text-[#e0a07a] group-hover:text-[#e0a07a] transition-colors duration-300" />
                 </div>
                 <h3 className="text-xl font-semibold text-[#63564d] mb-3">
                   {advantage.title}

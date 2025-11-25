@@ -29,7 +29,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="pt-16 pb-6 px-6 sm:px-8">
+    <section className="py-20 px-6 sm:px-8">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-font text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#63564d]">
           Our{" "}
@@ -46,7 +46,7 @@ export default function ServicesSection() {
         </div>
 
         {/* Scrollable container with gradient hints */}
-        <div className="relative">
+        <div className="relative text-start">
           {/* Gradient fade on right side - visible on mobile/tablet */}
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-gray-50 to-transparent pointer-events-none z-10 lg:hidden"></div>
 
