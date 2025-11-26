@@ -48,7 +48,7 @@ const supplementaryServices = [
 export default function Services() {
   return (
     <div className="min-h-screen">
-      <main className="max-w-7xl mx-auto py-20 px-8 lg:py-28">
+      <main className="max-w-7xl mx-auto py-20 px-2 sm:px-0 lg:py-28">
         {/* Background elements (subtle map contour, similar to the image) */}
         <div className="absolute inset-0 z-0 opacity-10">
           <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +60,7 @@ export default function Services() {
           </svg>
         </div>
         {/* Hero Section - Matching Contact Page Style */}
-        <div className="text-center my-9">
+        <div className="text-center my-9 px-6 sm:px-8">
           <h1 className="text-font text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#63564d] leading-tight mb-2">
             Our{" "}
             <span className="bg-gradient-to-r from-[#e0a07a] to-[#63564d] bg-clip-text text-transparent">
@@ -79,20 +79,22 @@ export default function Services() {
         {/* --- SECTION 2: OTHER SERVICES --- */}
         <ServicesGrid />
         {/* --- FINAL CTA (Matching Footer/Contact Style) --- */}
-        <div className="mt-20 text-center border-t border-[#bcada3] pt-12">
-          <h3 className="text-font text-4xl font-serif font-bold text-[#63564d] mb-4">
+        <div className="mt-16 sm:mt-20 text-center border-t border-[#bcada3] pt-8 sm:pt-12">
+          <h3 className="text-font text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#63564d] mb-3 sm:mb-4 px-4">
             Ready to Discuss Your Project?
           </h3>
-          <p className="text-font text-lg text-[#63564d] mb-4">
+          <p className="text-font text-base sm:text-lg text-[#63564d] mb-4 sm:mb-6 px-4 sm:px-0 max-w-2xl mx-auto leading-relaxed">
             Let's schedule a strategic consultation to tailor our services to
             your exact needs.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block py-3 px-6 text-base font-semibold rounded-2xl text-white bg-[#e0a07a] hover:shadow-lg hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto justify-center"
-          >
-            START A PROJECT
-          </Link>
+          <div className="px-4 sm:px-0">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center py-3 px-6 text-sm sm:text-base font-semibold rounded-xl sm:rounded-2xl text-white bg-[#e0a07a] hover:shadow-lg hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto max-w-xs mx-auto sm:mx-0"
+            >
+              START A PROJECT
+            </Link>
+          </div>
         </div>
       </main>
     </div>
