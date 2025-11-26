@@ -221,7 +221,7 @@ export default function About() {
             <h1 className="text-font text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#63564d] leading-tight mb-2">
               OUR <span className="text-[#e0a07a] bg-clip-text">MISSION</span>
             </h1>
-            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-2xl lg:mx-0">
+            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-2xl lg:mx-0 mx-4">
               {companyInfo.mission}
             </p>
           </div>
@@ -230,18 +230,18 @@ export default function About() {
             <h1 className="text-font text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#63564d] leading-tight mb-2">
               OUR <span className="text-[#e0a07a] bg-clip-text">VISION</span>
             </h1>
-            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-2xl lg:mx-0">
+            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-2xl mx-4 lg:mx-0">
               {companyInfo.vision}
             </p>
           </div>
         </div>
 
         {/* --- SECTION: CORE VALUES (Grid) --- */}
-        <div className="mb-24">
-          <h2 className="text-font text-2xl sm:text-3xl md:text-4xl font-bold text-[#63564d] mb-3 sm:mb-4 px-4 mx-auto text-center">
+        <div className="mb-24 mx-4">
+          <h2 className="text-font text-2xl sm:text-3xl md:text-4xl font-bold text-[#63564d] mb-3 sm:mb-4 px-4 mx-auto text-center border-b border-[#bcada3] pb-4 max-w-lg">
             The Principles That Guide Us
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[#bcada3] pt-8 py-2">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 py-2">
             {coreValues.map((value) => (
               <div
                 key={value.title}
@@ -254,21 +254,29 @@ export default function About() {
         </div>
 
         {/* --- SECTION: LOCATIONS, PARTNERS & SUPPORT (Split) --- */}
-        <div className="grid md:grid-cols-2 gap-16 mb-20">
-          {/* Column 1: Locations */}
-          <div className="space-y-8">
-            <h2 className="text-4xl font-serif font-medium text-[#63564d]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 mb-12 mx-4 sm:mb-16 md:mb-20">
+          {/* Column 1: Milestones */}
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium text-[#63564d]">
               Milestones
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {companyInfo.locations.map((loc, index) => (
-                <div key={index} className="flex items-center space-x-4">
-                  <GoMilestone size={20} className="text-[#63564d] flex-none" />
+                <div
+                  key={index}
+                  className="flex items-start space-x-3 sm:space-x-4"
+                >
+                  <GoMilestone
+                    size={18}
+                    className="text-[#63564d] flex-none mt-1 sm:mt-0.5"
+                  />
                   <div>
-                    <p className="text-lg font-semibold text-[#63564d]">
+                    <p className="text-base sm:text-lg font-semibold text-[#63564d] leading-tight">
                       {loc.year} {loc.event}
                     </p>
-                    <p className="text-sm text-[#63564d]">{loc.role}</p>
+                    <p className="text-xs sm:text-sm text-[#63564d] mt-1">
+                      {loc.role}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -276,17 +284,17 @@ export default function About() {
           </div>
 
           {/* Column 2: Partners & Support */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Partners */}
-            <div className="space-y-4">
-              <h2 className="text-4xl font-serif font-medium text-[#63564d]">
+            <div className="space-y-3 sm:space-y-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium text-[#63564d]">
                 Key Partnerships
               </h2>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-2 sm:gap-4">
                 {partnersAndSupport.partners.map((partner) => (
                   <span
                     key={partner}
-                    className="text-sm font-semibold uppercase tracking-wider text-[#63564d] border border-[#bcada3] px-3 py-1 bg-[#dca37c]"
+                    className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-[#63564d] border border-[#bcada3] px-2 sm:px-3 py-1 bg-[#dca37c]"
                   >
                     {partner}
                   </span>
@@ -295,21 +303,24 @@ export default function About() {
             </div>
 
             {/* Support */}
-            <div className="space-y-4 pt-4">
-              <h2 className="text-4xl font-serif font-medium text-[#63564d]">
+            <div className="space-y-3 sm:space-y-4 pt-4 sm:pt-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-medium text-[#63564d]">
                 Support
               </h2>
-              <p className="text-sm text-[#63564d]">
+              <p className="text-xs sm:text-sm text-[#63564d]">
                 Received support from prestigious organizations
               </p>
-              <ul className="space-y-3">
+              <ul className="space-y-2 sm:space-y-3">
                 {partnersAndSupport.support.map((achievement, index) => (
-                  <li key={index} className="flex items-start space-x-3">
+                  <li
+                    key={index}
+                    className="flex items-start space-x-2 sm:space-x-3"
+                  >
                     <FaHandshake
-                      size={16}
-                      className="text-[#63564d] mt-1 flex-none"
+                      size={14}
+                      className="text-[#63564d] mt-0.5 sm:mt-1 flex-none"
                     />
-                    <span className="text-base text-[#63564d]">
+                    <span className="text-sm sm:text-base text-[#63564d] leading-relaxed">
                       {achievement}
                     </span>
                   </li>
@@ -320,20 +331,22 @@ export default function About() {
         </div>
 
         {/* --- FINAL CTA (Recruiting Focus) --- */}
-        <div className="mt-12 text-center border-t border-[#bcada3] pt-12">
-          <h3 className="text-4xl font-serif font-light text-[#63564d] mb-4">
+        <div className="mt-16 sm:mt-20 text-center border-t border-[#bcada3] pt-8 sm:pt-12">
+          <h3 className="text-font text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#63564d] mb-3 sm:mb-4 px-4">
             Join Our Array of Lights
           </h3>
-          <p className="text-lg text-[#63564d] mb-8">
+          <p className="text-font text-base sm:text-lg text-[#63564d] mb-4 sm:mb-6 px-4 sm:px-0 max-w-2xl mx-auto leading-relaxed">
             We are always looking for passionate people who embody our values.
             Explore our current career opportunities.
           </p>
-          <Link
-            href="/careers"
-            className="inline-block py-3 px-8 text-sm font-semibold uppercase tracking-widest text-white bg-[#dca37c] hover:bg-[#d99a70] transition duration-300 border border-[#bcada3]"
-          >
-            VIEW OPENINGS
-          </Link>
+          <div className="px-4 sm:px-0">
+            <Link
+              href="/careers"
+              className="inline-flex items-center justify-center py-3 px-6 text-sm sm:text-base font-semibold rounded-xl sm:rounded-2xl text-white bg-[#e0a07a] hover:shadow-lg hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto max-w-xs mx-auto sm:mx-0"
+            >
+              VIEW OPENINGS
+            </Link>
+          </div>
         </div>
       </main>
     </div>
