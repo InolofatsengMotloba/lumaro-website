@@ -137,7 +137,7 @@ const Hero = () => {
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative h-46">
+                <div className="relative h-44">
                   <ImageCard
                     src="/LG3.png"
                     alt="Friendly service"
@@ -145,7 +145,7 @@ const Hero = () => {
                     priority={true}
                   />
                 </div>
-                <div className="relative h-46">
+                <div className="relative h-44">
                   <ImageCard
                     src="/LG1.png"
                     alt="Office Space"

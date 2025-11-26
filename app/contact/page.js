@@ -9,10 +9,10 @@ import {
 
 // Company Details (Centralized Data)
 const companyContact = {
-  phone: "(078) 724-4418",
-  email: "vuvuhesewu2@gmail.com",
+  phone: "(069) 203-3751",
+  email: "lumarogroup.co.za",
   address: "No 77 John Beer Street, Northcrest, Mthatha, Eastern Cape",
-  whatsappNumber: "+27787244418",
+  whatsappNumber: "+27692033751",
   hours: "Mon - Fri: 9:00 AM - 5:00 PM SAST",
 };
 
@@ -21,13 +21,13 @@ const companyContact = {
 const whatsappLink = `https://wa.me/${
   companyContact.whatsappNumber
 }?text=${encodeURIComponent(
-  "Hello Vuyelwa, I'd like to get a quote for your services. Please tell me what information you need."
+  "Hello, I'd like to get a quote for your services. Please tell me what information you need."
 )}`;
 
 export default function Contact() {
   return (
     <div className="min-h-screen ">
-      <main className="max-w-7xl mx-auto py-16 px-8 lg:py-24">
+      <main className="max-w-7xl mx-auto py-20 px-2 sm:px-0 lg:py-28">
         {/* Background elements (subtle map contour, similar to the image) */}
         <div className="absolute inset-0 z-0 opacity-10">
           <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
@@ -39,29 +39,27 @@ export default function Contact() {
           </svg>
         </div>
         {/* Hero Section - Centered and High-Impact */}
-        <div className="text-center mb-20">
-          {/* Subtle Sans-Serif Pre-title */}
-          <p className="text-sm font-light uppercase tracking-widest text-[#dca37c] mb-2">
-            Let&apos;s Collaborate
-          </p>
-
-          {/* Serif Title - Matching Header's Elegance */}
-          <h1 className="heading-font text-6xl md:text-8xl font-serif font-light text-[#63564d] tracking-tighter">
-            Get In Touch
+        <div className="text-center my-9 px-6 sm:px-8">
+          <h1 className="text-font text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#63564d] leading-tight mb-2">
+            Get In{" "}
+            <span className="bg-gradient-to-r from-[#e0a07a] to-[#63564d] bg-clip-text text-transparent">
+              Touch
+            </span>
           </h1>
 
-          {/* Subtitle/Call-to-Action */}
-          <p className="mt-6 text-lg text-[#63564d] max-w-2xl mx-auto">
-            Partner with Lumaro to bring your ideas to life through innovation
-            and purpose.
-          </p>
+          <div className="flex justify-center mt-4">
+            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-4xl lg:mx-0">
+              Partner with Lumaro to bring your ideas to life through innovation
+              and purpose.
+            </p>
+          </div>
         </div>
 
         {/* --- Main Content Grid: Form + Info/CTA --- */}
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left Column: Contact Form */}
           <div className="bg-[#f4eee5] p-8 border border-[#bcada3]">
-            <h2 className="text-2xl font-serif font-medium text-[#63564d] mb-6">
+            <h2 className="text-font text-2xl font-serif font-medium text-[#63564d] mb-6">
               Send Us a Message
             </h2>
 
@@ -115,7 +113,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full py-3 text-sm font-semibold uppercase tracking-widest text-white bg-[#dca37c] hover:bg-[#d99a70] transition duration-300 border border-[#bcada3]"
+                className="w-full py-3 text-sm sm:text-base font-semibold uppercase tracking-widest text-white bg-[#dca37c] hover:bg-[#d99a70] transition duration-300"
               >
                 SUBMIT INQUIRY
               </button>
@@ -126,7 +124,7 @@ export default function Contact() {
           <div className="space-y-12">
             {/* WhatsApp Quote Prompt Section */}
             <div className="p-6 border border-[#bcada3] hover:border-black transition duration-300">
-              <h3 className="text-xl font-serif font-bold text-[#63564d] mb-4">
+              <h3 className="text-font text-xl font-serif font-bold text-[#63564d] mb-4">
                 Need a Quick Quote?
               </h3>
               <p className="text-[#63564d] mb-6">
@@ -148,7 +146,7 @@ export default function Contact() {
 
             {/* General Contact Details */}
             <div className="space-y-6">
-              <h3 className="text-xl font-serif font-medium text-[#63564d]">
+              <h3 className="text-font text-xl font-serif font-medium text-[#63564d]">
                 Direct Contact
               </h3>
               <div className="space-y-3">
@@ -176,7 +174,7 @@ export default function Contact() {
 
             {/* Business Hours */}
             <div className="space-y-4">
-              <h3 className="text-xl font-serif font-medium text-black">
+              <h3 className="text-font text-xl font-serif font-medium text-black">
                 Business Hours
               </h3>
               <ContactDetail
@@ -195,7 +193,7 @@ export default function Contact() {
 // Reusable component for contact details
 const ContactDetail = ({ Icon, label, value, link, target = "_self" }) => (
   <div className="flex items-start space-x-4">
-    <Icon className="text-[#dca37c] hover:text-[#d99a70] mt-1" size={16} />
+    <Icon className="text-[#e0a07a] hover:text-[#d99a70] mt-1" size={16} />
     <div className="flex-1">
       <p className="text-sm font-semibold uppercase tracking-wider text-[#63564d] mb-0.5">
         {label}

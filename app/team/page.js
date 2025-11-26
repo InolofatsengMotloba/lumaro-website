@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  FaLinkedinIn,
-  FaEnvelope,
-  FaUserTie,
-  FaLaptopCode,
-  FaChartLine,
-} from "react-icons/fa";
+import { FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 
 // --- TEAM DATA ---
@@ -156,7 +150,7 @@ export default function Team() {
 
   return (
     <div className="min-h-screen ">
-      <main className="max-w-7xl mx-auto py-16 px-8 lg:py-24">
+      <main className="max-w-7xl mx-auto py-20 px-2 sm:px-0 lg:py-28">
         {/* Background elements (subtle map contour, similar to the image) */}
         <div className="absolute inset-0 z-0 opacity-10">
           <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
@@ -168,30 +162,33 @@ export default function Team() {
           </svg>
         </div>
         {/* Hero Section */}
-        <div className="text-center mb-20">
-          <p className="text-sm font-light uppercase tracking-widest text-[#dca37c] mb-2">
-            Meet the Experts
-          </p>
-          <h1 className="heading-font text-6xl md:text-8xl font-serif font-light text-[#63564d] tracking-tighter">
-            Our People
+        <div className="text-center my-9 px-6 sm:px-8">
+          <h1 className="text-font text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#63564d] leading-tight mb-2">
+            Our{" "}
+            <span className="bg-gradient-to-r from-[#e0a07a] to-[#63564d] bg-clip-text text-transparent">
+              People
+            </span>
           </h1>
-          <p className="mt-6 text-lg text-[#63564d] max-w-3xl mx-auto">
-            Guided by visionary leadership and united by purpose, the Lumaro
-            team blends creativity, strategy, and technology to deliver
-            impactful solutions that empower brands and communities.
-          </p>
+
+          <div className="flex justify-center mt-4">
+            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-4xl lg:mx-0">
+              Guided by visionary leadership and united by purpose, the Lumaro
+              team blends creativity, strategy, and technology to deliver
+              impactful solutions that empower brands and communities.
+            </p>
+          </div>
         </div>
 
         {/* --- SECTION 1: EXECUTIVE & ACCOUNTS TEAM --- */}
         <div className="mb-24">
-          <h2 className="text-4xl font-serif font-medium text-center text-[#63564d] mb-12 border-b border-[#bcada3] pb-4 max-w-lg mx-auto">
+          <h2 className="text-4xl sm:text-3xl md:text-4xl text-font font-bold text-center text-[#63564d] mb-12 border-b border-[#bcada3] pb-4 max-w-lg mx-auto">
             Executive & Client Relations
           </h2>
 
           <div className="grid md:grid-cols-3 gap-10">
             {/* Director (Prominent placement - Column 1) */}
             <div className="md:col-span-1">
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-[#dca37c] mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-[#dca37c] mb-4">
                 Director
               </h3>
               {director && <MemberCard member={director} isLead={true} />}
@@ -199,7 +196,7 @@ export default function Team() {
 
             {/* Accounts Manager and Subordinates (Column 2 & 3) */}
             <div className="md:col-span-2">
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-[#dca37c] mb-4">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-[#dca37c] mb-4">
                 Client Accounts Team
               </h3>
 
@@ -224,7 +221,7 @@ export default function Team() {
 
         {/* --- SECTION 2: IT & TECHNICAL SUPPORT TEAM --- */}
         <div className="mb-24 pt-16">
-          <h2 className="text-4xl font-serif font-medium text-center text-[#63564d] mb-12 border-b border-[#bcada3] pb-4 max-w-lg mx-auto">
+          <h2 className="text-4xl sm:text-3xl md:text-4xl text-font font-bold text-center text-[#63564d] mb-12 border-b border-[#bcada3] pb-4 max-w-lg mx-auto">
             Technical & Infrastructure Support
           </h2>
 
@@ -252,20 +249,22 @@ export default function Team() {
         </div>
 
         {/* --- FINAL CTA (Consistent with other pages) --- */}
-        <div className="mt-20 text-center border-t border-[#bcada3] pt-12">
-          <h3 className="text-4xl font-serif font-light text-[#63564d] mb-4">
+        <div className="mt-16 sm:mt-20 text-center border-t border-[#bcada3] pt-8 sm:pt-12">
+          <h3 className="text-font text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-[#63564d] mb-3 sm:mb-4 px-4">
             Work With Our Specialists
           </h3>
-          <p className="text-lg text-[#63564d] mb-8">
+          <p className="text-font text-base sm:text-lg text-[#63564d] mb-4 sm:mb-6 px-4 sm:px-0 max-w-2xl mx-auto leading-relaxed">
             Ready to partner with a dedicated team? Contact us to start your
             project.
           </p>
-          <Link
-            href="/contact"
-            className="inline-block py-3 px-8 text-sm font-semibold uppercase tracking-widest text-white bg-[#dca37c] hover:bg-[#d99a70] transition duration-300 border border-[#bcada3]"
-          >
-            START A CONSULTATION
-          </Link>
+          <div className="px-4 sm:px-0">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center py-3 px-6 text-sm sm:text-base font-semibold rounded-xl sm:rounded-2xl text-white bg-[#e0a07a] hover:shadow-lg hover:scale-[1.02] transition-all duration-300 w-full sm:w-auto max-w-xs mx-auto sm:mx-0"
+            >
+              START A CONSULTATION
+            </Link>
+          </div>
         </div>
       </main>
     </div>
