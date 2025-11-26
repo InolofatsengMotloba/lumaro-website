@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
           {/* --- Left Content: Headline, Description, Button --- */}
           <div className="lg:w-5/12 text-center lg:text-left order-1">
-            <h1 className="text-font text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#63564d] leading-tight mb-4">
+            <h1 className="text-font text-4xl sm:text-4xl md:text-6xl font-extrabold text-[#63564d] leading-tight mb-4">
               Building Your{" "}
               <span className="bg-gradient-to-r from-[#e0a07a] to-[#63564d] bg-clip-text text-transparent">
                 Business
