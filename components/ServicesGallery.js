@@ -2,48 +2,46 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import Image from "next/image";
 
-// Mock data - replace with your actual services data
 const servicesData = [
   {
     id: 1,
-    title: "Adventure Travel",
+    title: "Company Registration & Profile",
     description:
-      "Thrilling expeditions to remote destinations and extreme landscapes.",
-    image: "/services/adventure.jpg",
-    color: "#f97316",
+      "Start your business on the right foot with a seamless registration process and a professionally crafted company profile. We help you establish a strong foundation that attracts clients, investors, and opportunities. By supporting new entrepreneurs, especially young people, we aim to reduce youth unemployment through business creation and empowerment.",
+    image: "/registration.jpg",
+    color: "#e0a07a",
   },
   {
     id: 2,
-    title: "Cultural Immersion",
+    title: "Business Proposal",
     description:
-      "Deep dive into local traditions, customs, and authentic experiences.",
-    image: "/services/cultural.jpg",
-    color: "#dc2626",
+      "Stand out and secure more opportunities with a compelling, well-structured business proposal. We craft proposals that clearly communicate your value, strengthen your pitch, and help you win clients or funding.",
+    image: "/proposal.jpg",
+    color: "#e9a46a",
   },
   {
     id: 3,
-    title: "Luxury Getaways",
+    title: "Business Plan",
     description:
-      "Premium accommodations and exclusive experiences for discerning travelers.",
-    image: "/services/luxury.jpg",
-    color: "#059669",
+      "Whether you're launching, scaling, or seeking funding, a strong business plan is essential. We create detailed, investor-ready business plans tailored to your goals and industry.",
+    image: "/Bplan.png",
+    color: "#e58c41",
   },
   {
     id: 4,
-    title: "Sustainable Tourism",
+    title: "Financial Statements",
     description:
-      "Eco-friendly journeys that support local communities and preserve nature.",
-    image: "/services/eco.jpg",
-    color: "#2563eb",
+      "Make informed decisions with accurate, reliable financial statements prepared for clarity and compliance. We help you understand your numbers so you can manage your business with confidence.",
+    image: "/financial.png",
+    color: "#e58c41",
   },
 ];
 
 const ServicesGallery = () => {
   const [selectedService, setSelectedService] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [imageErrors, setImageErrors] = useState({});
 
   const nextService = () => {
     setDirection(1);
@@ -73,164 +71,123 @@ const ServicesGallery = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden bg-white">
-      {/* Background pattern matching the hero */}
-      <div className="absolute inset-0 z-0 opacity-10">
-        <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill="#FDBA74"
-            d="M800.2,467.4C719,579.5,479,720.9,321.4,694.7C163.8,668.5,88.4,474.7,65.3,316.5C42.2,158.3,70.5,35.6,220.6,6.3C370.7-23,642.6,35.3,800.2,197.6C957.9,360,881.4,415.3,800.2,467.4Z"
-            transform="translate(-100, -100) scale(1.2)"
-          />
-        </svg>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10 min-h-screen flex items-center">
-        <div className="w-full">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-6">
-              Our <span className="text-orange-600">Services</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover the unique travel experiences we specialize in, crafted
-              to make your journey unforgettable.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Side - Service Cards Grid */}
-            <div className="grid grid-cols-2 gap-6">
-              {servicesData.map((service, index) => (
-                <motion.div
-                  key={service.id}
-                  className={`relative rounded-2xl overflow-hidden cursor-pointer group ${
-                    index === selectedService ? "ring-4 ring-orange-500" : ""
-                  }`}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => {
-                    setDirection(index > selectedService ? 1 : -1);
-                    setSelectedService(index);
-                  }}
-                >
-                  <div className="aspect-square relative">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                      <h3 className="font-bold text-lg">{service.title}</h3>
-                    </div>
-                    {index === selectedService && (
-                      <div className="absolute top-4 right-4">
-                        <div className="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center">
-                          <div className="w-2 h-2 bg-white rounded-full" />
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Right Side - Featured Service Details */}
-            <div className="relative h-96 lg:h-[500px]">
-              <AnimatePresence mode="wait" custom={direction}>
-                <motion.div
-                  key={selectedService}
-                  custom={direction}
-                  variants={variants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 },
-                  }}
-                  className="absolute inset-0"
-                >
-                  <div className="bg-white rounded-2xl shadow-2xl p-8 h-full flex flex-col justify-between">
-                    <div>
-                      <div
-                        className="w-12 h-1 rounded-full mb-6"
-                        style={{
-                          backgroundColor: servicesData[selectedService].color,
-                        }}
-                      />
-                      <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                        {servicesData[selectedService].title}
-                      </h3>
-                      <p className="text-lg text-gray-600 mb-8">
-                        {servicesData[selectedService].description}
-                      </p>
-                    </div>
-
-                    <div className="space-y-4">
-                      <Link
-                        href="/services"
-                        className="inline-block px-8 py-3 bg-orange-600 text-white font-semibold rounded-full hover:bg-orange-700 transform hover:scale-105 transition duration-300"
-                      >
-                        Learn More
-                      </Link>
-
-                      {/* Navigation Arrows */}
-                      <div className="flex space-x-4">
-                        <button
-                          onClick={prevService}
-                          className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition duration-300"
-                        >
-                          ←
-                        </button>
-                        <button
-                          onClick={nextService}
-                          className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition duration-300"
-                        >
-                          →
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* View All Services Link */}
-          <div className="text-center mt-16">
-            <p className="text-gray-600 mb-4">
-              We offer much more than these core services
-            </p>
-            <Link
-              href="/services"
-              className="inline-flex items-center text-lg font-semibold text-orange-600 hover:text-orange-700 transition duration-200 group"
-            >
-              VIEW ALL SERVICES IN DETAIL
-              <span className="ml-2 group-hover:translate-x-2 transition-transform duration-200">
-                &rarr;
-              </span>
-            </Link>
-          </div>
-
-          {/* Service Indicators */}
-          <div className="flex justify-center space-x-3 mt-12">
-            {servicesData.map((_, index) => (
-              <button
-                key={index}
+    <section className="w-full">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 items-stretch">
+          {/* LEFT: Services Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+            {servicesData.map((service, index) => (
+              <motion.div
+                key={service.id}
+                className={`relative rounded-xl overflow-hidden cursor-pointer group 
+            h-32 sm:h-36 md:h-40 
+            ${index === selectedService ? "ring-2 ring-[#e0a07a]" : ""}`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 onClick={() => {
                   setDirection(index > selectedService ? 1 : -1);
                   setSelectedService(index);
                 }}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === selectedService
-                    ? "bg-orange-600 scale-125"
-                    : "bg-gray-300"
-                }`}
-              />
+              >
+                <div className="h-full relative">
+                  {!imageErrors[service.id] ? (
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                      onError={() =>
+                        setImageErrors((prev) => ({
+                          ...prev,
+                          [service.id]: true,
+                        }))
+                      }
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+                      <div className="text-center p-3">
+                        <div
+                          className="w-10 h-10 mx-auto mb-2 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                          style={{ backgroundColor: service.color }}
+                        >
+                          {service.title.charAt(0)}
+                        </div>
+                        <span className="text-gray-700 font-medium text-xs sm:text-sm line-clamp-2">
+                          {service.title}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-3 bg-gradient-to-t from-black/70 to-transparent">
+                    <h3 className="text-font text-white font-bold text-xs sm:text-sm leading-tight line-clamp-2">
+                      {service.title}
+                    </h3>
+                  </div>
+                </div>
+              </motion.div>
             ))}
+          </div>
+
+          {/* RIGHT: Selected Service Panel */}
+          <div className="relative min-h-[280px] sm:min-h-[320px] lg:min-h-[360px]">
+            <AnimatePresence mode="wait" custom={direction} initial={false}>
+              <motion.div
+                key={selectedService}
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: "spring", stiffness: 250, damping: 25 },
+                  opacity: { duration: 0.4 },
+                }}
+                className="absolute inset-0"
+              >
+                <div
+                  className="rounded-xl shadow-xl p-4 sm:p-6 h-full flex flex-col justify-between"
+                  style={{
+                    backgroundColor: servicesData[selectedService].color + "15",
+                  }}
+                >
+                  <div className="flex-1 flex flex-col min-h-0">
+                    {" "}
+                    {/* Added container for better overflow handling */}
+                    <div
+                      className="w-10 h-1 rounded-full mb-3 sm:mb-4"
+                      style={{
+                        backgroundColor: servicesData[selectedService].color,
+                      }}
+                    />
+                    <h3 className="text-font text-xl sm:text-2xl font-bold text-[#63564d] mb-3 sm:mb-4 line-clamp-2">
+                      {servicesData[selectedService].title}
+                    </h3>
+                    <div className="flex-1 overflow-hidden">
+                      {" "}
+                      {/* Wrapper for scrollable content */}
+                      <p className="text-font text-[#63564d] text-sm sm:text-base leading-relaxed overflow-y-auto max-h-[180px] sm:max-h-[200px] pr-2 break-words">
+                        {servicesData[selectedService].description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex space-x-2 mt-4">
+                    <button
+                      onClick={prevService}
+                      className="p-2 px-3 rounded-full bg-white hover:bg-gray-100 transition shadow-md text-sm"
+                    >
+                      ←
+                    </button>
+                    <button
+                      onClick={nextService}
+                      className="p-2 px-3 rounded-full bg-white hover:bg-gray-100 transition shadow-md text-sm"
+                    >
+                      →
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>

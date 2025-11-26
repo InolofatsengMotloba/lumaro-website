@@ -145,8 +145,18 @@ const AnimatedCounter = ({ targetNumber, duration = 2000 }) => {
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-[#f6f3ec]">
+    <div className="min-h-screen ">
       <main className="max-w-7xl mx-auto py-16 px-8 lg:py-24">
+        {/* Background elements (subtle map contour, similar to the image) */}
+        <div className="absolute inset-0 z-0 opacity-10">
+          <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill="#e9a46a"
+              d="M800.2,467.4C719,579.5,479,720.9,321.4,694.7C163.8,668.5,88.4,474.7,65.3,316.5C42.2,158.3,70.5,35.6,220.6,6.3C370.7-23,642.6,35.3,800.2,197.6C957.9,360,881.4,415.3,800.2,467.4Z"
+              transform="translate(-100, -100) scale(1.2)"
+            />
+          </svg>
+        </div>
         {/* Hero Section: The Big Question */}
         <div className="text-center mb-20">
           <p className="text-sm font-light uppercase tracking-widest text-[#dca37c] mb-2">
