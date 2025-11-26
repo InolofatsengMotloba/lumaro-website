@@ -106,14 +106,16 @@ const ValueItem = ({ value }) => {
   const IconComponent = value.icon;
 
   return (
-    <div className="space-y-3 p-6 border-b border-gray-100 hover:bg-gray-50 transition duration-200">
-      <div className="text-3xl text-[#63564d]">
+    <div className="space-y-2 sm:space-y-3 p-4 sm:p-6 border-b border-gray-100 hover:bg-gray-50 transition duration-200">
+      <div className="text-2xl sm:text-3xl text-[#63564d]">
         <IconComponent />
       </div>
-      <h3 className="text-xl font-serif font-medium text-[#63564d]">
+      <h3 className="text-lg sm:text-xl text-font font-bold text-[#63564d]">
         {value.title}
       </h3>
-      <p className="text-[#63564d] text-sm">{value.description}</p>
+      <p className="text-[#63564d] text-font text-sm hidden sm:block">
+        {value.description}
+      </p>
     </div>
   );
 };
@@ -146,7 +148,7 @@ const AnimatedCounter = ({ targetNumber, duration = 2000 }) => {
 export default function About() {
   return (
     <div className="min-h-screen ">
-      <main className="max-w-7xl mx-auto py-16 px-8 lg:py-24">
+      <main className="max-w-7xl mx-auto py-20 px-2 sm:px-0 lg:py-28">
         {/* Background elements (subtle map contour, similar to the image) */}
         <div className="absolute inset-0 z-0 opacity-10">
           <svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
@@ -158,46 +160,55 @@ export default function About() {
           </svg>
         </div>
         {/* Hero Section: The Big Question */}
-        <div className="text-center mb-20">
-          <p className="text-sm font-light uppercase tracking-widest text-[#dca37c] mb-2">
-            The Lumaro Story
-          </p>
-          <h1 className="heading-font text-6xl md:text-8xl font-serif font-light text-[#63564d] tracking-tighter">
-            We Are LUMARO
+        <div className="text-center my-9 px-6 sm:px-8">
+          <h1 className="text-font text-3xl sm:text-4xl md:text-6xl font-extrabold text-[#63564d] leading-tight mb-2">
+            We Are{" "}
+            <span className="bg-gradient-to-r from-[#e0a07a] to-[#63564d] bg-clip-text text-transparent">
+              LUMARO
+            </span>
           </h1>
-          <p className="mt-6 text-xl text-[#63564d] max-w-3xl mx-auto font-light">
-            Just as light reveals hidden beauty, we help companies and brands
-            uncover their potential and radiate impact through innovative
-            digital solutions.
-          </p>
+          <div className="flex justify-center mt-4">
+            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-4xl lg:mx-0">
+              Driven by a vision to create meaningful change, Lumaro is
+              committed to reducing youth unemployment in South Africa through
+              skills development and mentorship, while empowering women and
+              uplifting local communities. We combine creativity, strategy, and
+              technology to illuminate opportunities for businesses — helping
+              brands uncover their potential and amplify their impact through
+              innovative digital solutions.
+            </p>
+          </div>
         </div>
 
         {/* --- SECTION: COMPANY AT A GLANCE (Key Facts) --- */}
-        <div className="mb-24">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-t border-b border-[#bcada3] py-10">
-            <div className="space-y-1">
-              <p className="text-4xl font-serif font-medium text-[#63564d]">
+        <div className="mb-16 sm:mb-20 md:mb-24 text-font">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 text-center border-t border-b border-[#bcada3] py-6 sm:py-8 md:py-10">
+            {/* Founded */}
+            <div className="space-y-1 sm:space-y-2">
+              <p className="text-2xl sm:text-3xl md:text-4xl text-font font-medium text-[#63564d]">
                 {companyInfo.founded}
               </p>
-              <p className="text-sm uppercase tracking-widest text-[#dca37c]">
+              <p className="text-xs sm:text-sm uppercase tracking-widest text-[#dca37c]">
                 Founded
               </p>
             </div>
 
-            <div className="space-y-1">
-              <p className="text-4xl font-serif font-medium text-[#63564d]">
+            {/* Projects */}
+            <div className="space-y-1 sm:space-y-2">
+              <p className="text-2xl sm:text-3xl md:text-4xl text-font font-medium text-[#63564d]">
                 <AnimatedCounter targetNumber={25} />
               </p>
-              <p className="text-sm uppercase tracking-widest text-[#dca37c]">
+              <p className="text-xs sm:text-sm uppercase tracking-widest text-[#dca37c]">
                 Projects
               </p>
             </div>
 
-            <div className="space-y-1 col-span-2">
-              <p className="text-4xl font-serif font-medium text-[#63564d]">
+            {/* Global Footprint - Full width on mobile, spans 2 cols on sm+ */}
+            <div className="space-y-1 sm:space-y-2 sm:col-span-2 md:col-span-2 mt-2 sm:mt-0">
+              <p className="text-xl sm:text-2xl md:text-4xl text-font font-medium text-[#63564d] leading-tight">
                 Global Footprint
               </p>
-              <p className="text-sm uppercase tracking-widest text-[#dca37c]">
+              <p className="text-xs sm:text-sm uppercase tracking-widest text-[#dca37c]">
                 {companyInfo.locations.map((loc) => loc.city).join(" & ")}
               </p>
             </div>
@@ -205,21 +216,21 @@ export default function About() {
         </div>
 
         {/* --- SECTION: MISSION & VISION (Two Columns) --- */}
-        <div className="grid md:grid-cols-2 gap-12 mb-24">
+        <div className="grid md:grid-cols-2 gap-12 mb-24 text-center my-9">
           <div className="space-y-6">
-            <h2 className="text-5xl font-serif font-medium text-[#63564d]">
-              OUR MISSION
-            </h2>
-            <p className="text-lg text-[#63564d] leading-relaxed">
+            <h1 className="text-font text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#63564d] leading-tight mb-2">
+              OUR <span className="text-[#e0a07a] bg-clip-text">MISSION</span>
+            </h1>
+            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-2xl lg:mx-0">
               {companyInfo.mission}
             </p>
           </div>
 
           <div className="space-y-6">
-            <h2 className="text-5xl font-serif font-medium text-[#63564d]">
-              OUR VISION
-            </h2>
-            <p className="text-lg text-[#63564d] leading-relaxed">
+            <h1 className="text-font text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#63564d] leading-tight mb-2">
+              OUR <span className="text-[#e0a07a] bg-clip-text">VISION</span>
+            </h1>
+            <p className="text-font sm:text-lg text-[#63564d] mb-6 max-w-2xl lg:mx-0">
               {companyInfo.vision}
             </p>
           </div>
@@ -227,12 +238,17 @@ export default function About() {
 
         {/* --- SECTION: CORE VALUES (Grid) --- */}
         <div className="mb-24">
-          <h2 className="text-4xl font-serif font-medium text-center text-[#63564d] mb-12">
+          <h2 className="text-font text-2xl sm:text-3xl md:text-4xl font-bold text-[#63564d] mb-3 sm:mb-4 px-4 mx-auto text-center">
             The Principles That Guide Us
           </h2>
-          <div className="grid md:grid-cols-4 gap-8 border-t border-[#bcada3] pt-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-[#bcada3] pt-8 py-2">
             {coreValues.map((value) => (
-              <ValueItem key={value.title} value={value} />
+              <div
+                key={value.title}
+                className="flex flex-col items-start space-y-2"
+              >
+                <ValueItem key={value.title} value={value} />
+              </div>
             ))}
           </div>
         </div>
